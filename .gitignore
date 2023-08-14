@@ -1,4 +1,5 @@
 .venv
-imiges/
+images/
 .env
 __pycache__/
+_test*.py
