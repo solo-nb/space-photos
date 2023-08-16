@@ -1,23 +1,38 @@
 import requests
 from urllib.parse import urlsplit
 import os
-
+import telegram
 from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_extension(url: str) -> str:
+def get_extension(file: str) -> str:
     return os.path.splitext(
         os.path.split(
-            urlsplit(url)[2]
+            file
         )[1]
     )[1]
 
 
 def get_file_name(url: str) -> str:
     return os.path.split(
-            urlsplit(url)[2]
-        )[1]
+        urlsplit(url)[2]
+    )[1]
+
+
+def get_images(catalog: str) -> list:
+    images = []
+    for adr, dir, file in os.walk(catalog):
+        for img in file:
+            images.append(os.path.join(adr, img))
+    return images
+
+
+def publish_photo_to_telegram(token: str, id_group: str, file: str):
+    telegram.Bot(token=token).send_photo(
+        chat_id=id_group,
+        photo=open(file, 'rb')
+    )
 
 
 def download_image(url: str, path: str, api_key: str) -> None:
