@@ -5,7 +5,7 @@
 ## Как установить
 Скачайте скрипт в определенный директорию
 
-```
+```shell
 cd PATH
 git clone https://github.com/solo-nb/space-photos
 ```
@@ -13,7 +13,7 @@ git clone https://github.com/solo-nb/space-photos
 Настройте переменные окружения:
 В директории необходимо создать файл `.env` со следующим содержимым:
 
-```
+```python
 NASA_API_KEY=API_KEY_NASA # ключ АПИ полученный с сайта nasa.gov
 CATALOG=CATALOG # каталог для скачиваемых и публикуемых картинок
 TELEGRAM_TOKEN=TELEGRAM_TOKEN # Токен телеграм бота, который публикует картинки в телеграм группу
@@ -26,12 +26,32 @@ PAUSE_TIME=4 # пауза в часах между публикациями
 
 ## Как использовать
 
-- Скрипт fetch_spacex_images.py может принимать параметр в виде id запуска. При запуске скрипта без параметра, будут скачены фотографии последнего запуска. Пример: `python fetch_spacex_images.py 5eb87d47ffd86e000604b38a`.
+- Скрипт fetch_spacex_images.py может принимать параметр в виде id запуска. При запуске скрипта без параметра, будут скачены фотографии последнего запуска. Пример: 
 
-- Скрипт fetch_apod_images.py. Скачивает 10 последних фотографий с сайта НАСА из проекта APOD. Пример: `python fetch_apod_images.py`.
+```shell
+python fetch_spacex_images.py 5eb87d47ffd86e000604b38a
+```
 
-- Скрипт fetch_epic_images.py. Скачивает несколько последних фотографий с сайта НАСА из проекта EPIC. Пример: `python fetch_epic_images.py`.
+- Скрипт fetch_apod_images.py. Скачивает 10 последних фотографий с сайта НАСА из проекта APOD. Пример: 
 
-- Скрипт publish_photo_to_telegram.py публикует картинку в телеграм группу. Может принимать параметр в виде пути до файла картинки. Если параметр не указан будет опубликована случайная картинка из рабочего каталога. Пример: `python fetch_epic_images.py <file_name>`.
+```shell
+python fetch_apod_images.py
+```shell
 
-- Скрипт auto_publish_photos_to_telegram_group.py в бесконечном цикле с определенной паузой публикует картинки в телегам группу из рабочего каталога. Пример: `python auto_publish_photos_to_telegram_group.py`.
+- Скрипт fetch_epic_images.py. Скачивает несколько последних фотографий с сайта НАСА из проекта EPIC. Пример: 
+
+```shell
+python fetch_epic_images.py
+```
+
+- Скрипт publish_photo_to_telegram.py публикует картинку в телеграм группу. Может принимать параметр в виде пути до файла картинки. Если параметр не указан будет опубликована случайная картинка из рабочего каталога. Пример: 
+
+```shell
+python fetch_epic_images.py <file_name>
+```
+
+- Скрипт auto_publish_photos_to_telegram_group.py в бесконечном цикле с определенной паузой публикует картинки в телегам группу из рабочего каталога. Пример: 
+
+```shell
+python auto_publish_photos_to_telegram_group.py
+```
