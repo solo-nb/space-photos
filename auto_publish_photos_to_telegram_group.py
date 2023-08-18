@@ -16,9 +16,7 @@ def auto_publish_photos_to_telegram(token: str,
                 continue
 
             extension = get_extension(img)
-            if not (extension == '.png'
-                    or extension == '.jpg'
-                    or extension == '.gif'):
+            if extension not in ['.png', '.jpg', '.gif']:
                 continue
 
             publish_photo_to_telegram(token, group_id, img)
