@@ -8,7 +8,7 @@ load_dotenv()
 
 def main():
     token = os.getenv('TELEGRAM_TOKEN')
-    id_group = os.getenv('TELEGRAM_GROUP_ID')
+    group_id = os.getenv('TELEGRAM_GROUP_ID')
     catalog = os.getenv('CATALOG')
 
     parser = argparse.ArgumentParser()
@@ -27,7 +27,7 @@ def main():
         shuffle(images)
         file_name = images[0]
 
-    publish_photo_to_telegram(token, id_group, file_name)
+    publish_photo_to_telegram(token, group_id, file_name)
 
 
 if __name__ == '__main__':

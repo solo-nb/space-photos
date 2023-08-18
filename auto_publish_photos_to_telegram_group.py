@@ -5,7 +5,7 @@ from time import sleep
 
 
 def auto_publish_photos_to_telegram(token: str,
-                                    id_group: str,
+                                    group_id: str,
                                     catalog: str,
                                     pause_time: int):
     images = get_images(catalog)
@@ -22,7 +22,7 @@ def auto_publish_photos_to_telegram(token: str,
                     or extension == '.gif'):
                 continue
 
-            publish_photo_to_telegram(token, id_group, img)
+            publish_photo_to_telegram(token, group_id, img)
 
             if index == len(images) - 1:
                 index = 0
@@ -32,11 +32,11 @@ def auto_publish_photos_to_telegram(token: str,
 
 def main():
     token = getenv('TELEGRAM_TOKEN')
-    id_group = getenv('TELEGRAM_GROUP_ID')
+    group_id = getenv('TELEGRAM_GROUP_ID')
     catalog = getenv('CATALOG')
     pause_time = int(getenv('PAUSE_TIME'))
 
-    auto_publish_photos_to_telegram(token, id_group, catalog, pause_time)
+    auto_publish_photos_to_telegram(token, group_id, catalog, pause_time)
 
 
 if __name__ == '__main__':

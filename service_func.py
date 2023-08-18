@@ -28,9 +28,9 @@ def get_images(catalog: str) -> list:
     return images
 
 
-def publish_photo_to_telegram(token: str, id_group: str, file: str):
+def publish_photo_to_telegram(token: str, group_id: str, file: str):
     telegram.Bot(token=token).send_photo(
-        chat_id=id_group,
+        chat_id=group_id,
         photo=open(file, 'rb')
     )
 
