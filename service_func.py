@@ -7,17 +7,14 @@ load_dotenv()
 
 
 def get_extension(file: str) -> str:
-    return os.path.splitext(
-        os.path.split(
-            file
-        )[1]
-    )[1]
+    __, path = os.path.split(file)
+    __, extension = os.path.splitext(path)
+    return extension
 
 
 def get_file_name(url: str) -> str:
-    return os.path.split(
-        urlsplit(url)[2]
-    )[1]
+    __, file_name = os.path.split(urlsplit(url).path)
+    return file_name
 
 
 def get_images(catalog: str) -> list:
