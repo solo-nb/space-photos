@@ -11,8 +11,7 @@ def auto_publish_photos_to_telegram(token: str,
     images = get_images(catalog)
 
     while True:
-        for index in range(len(images)):
-            img = images[index]
+        for img in images:
             if path.getsize(img) > 15000000:
                 continue
 
@@ -24,10 +23,9 @@ def auto_publish_photos_to_telegram(token: str,
 
             publish_photo_to_telegram(token, group_id, img)
 
-            if index == len(images) - 1:
-                index = 0
-                shuffle(images)
             sleep(pause_time * 60 * 60)
+
+        shuffle(images)
 
 
 def main():
