@@ -2,7 +2,6 @@ import requests
 from urllib.parse import urlsplit
 import os
 import telegram
-from dotenv import load_dotenv
 
 
 def get_extension(file: str) -> str:
@@ -47,7 +46,3 @@ def download_images(urls: list, path: str, api_key=None) -> None:
 
         with open(f'{path}/{file_name}', 'wb') as file:
             file.write(pic.content)
-
-
-if __name__ == '__main__':
-    load_dotenv()
