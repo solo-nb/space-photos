@@ -15,7 +15,7 @@ def get_urls_from_spacex(id: str) -> list:
         return list(response.json()['links']['flickr']['original'])
 
     for launch in response.json():
-        if len(launch['links']['flickr']['original']) > 0:
+        if not launch['links']['flickr']['original']:
             return list(launch['links']['flickr']['original'])
 
 
