@@ -2,6 +2,7 @@ from os import getenv, path
 from random import shuffle
 from service_func import publish_photo_to_telegram, get_extension, get_images
 from time import sleep
+from dotenv import load_dotenv
 
 
 def auto_publish_photos_to_telegram(token: str,
@@ -36,4 +37,5 @@ def main():
 
 
 if __name__ == '__main__':
+    load_dotenv()
     main()

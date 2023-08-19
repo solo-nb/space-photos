@@ -3,7 +3,6 @@ from urllib.parse import urlsplit
 import os
 import telegram
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def get_extension(file: str) -> str:
@@ -53,3 +52,7 @@ def download_image(url: str, path: str, api_key: str) -> None:
 def download_images(urls: list, path: str, api_key=None) -> None:
     for url in urls:
         download_image(url, path, api_key)
+
+
+if __name__ == '__main__':
+    load_dotenv()

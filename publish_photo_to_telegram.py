@@ -3,7 +3,6 @@ import argparse
 from random import shuffle
 from service_func import get_images, publish_photo_to_telegram
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def main():
@@ -31,4 +30,5 @@ def main():
 
 
 if __name__ == '__main__':
+    load_dotenv()
     main()

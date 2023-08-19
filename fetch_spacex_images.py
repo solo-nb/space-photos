@@ -3,7 +3,6 @@ from service_func import download_images
 import os
 import argparse
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def get_urls_from_spacex(id: str) -> list:
@@ -36,4 +35,5 @@ def main():
 
 
 if __name__ == '__main__':
+    load_dotenv()
     main()

@@ -3,7 +3,6 @@ import os
 from datetime import datetime
 from service_func import download_images
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def get_urls_from_epic(api_key: str) -> list:
@@ -39,4 +38,5 @@ def main():
 
 
 if __name__ == '__main__':
+    load_dotenv()
     main()
