@@ -14,9 +14,7 @@ def get_urls_from_apod(count: int, api_key: str) -> list:
     response = requests.get(url, params=params)
     response.raise_for_status()
 
-    urls_images = []
-    for img in response.json():
-        urls_images.append(img['url'])
+    urls_images = [img['url'] for img in response.json()]
 
     return urls_images
 
