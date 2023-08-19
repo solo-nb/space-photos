@@ -41,8 +41,7 @@ def download_images(urls: list, path: str, api_key=None) -> None:
         pic = requests.get(url, params=params)
         pic.raise_for_status()
 
-        if not os.path.exists(path):
-            os.makedirs(path)
+        os.makedirs(path, exist_ok=True)
 
         file_name = get_file_name(url)
 
