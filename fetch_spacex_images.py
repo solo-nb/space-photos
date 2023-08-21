@@ -5,13 +5,13 @@ import argparse
 from dotenv import load_dotenv
 
 
-def get_urls_from_spacex(id: str) -> list:
-    url = 'https://api.spacexdata.com/v5/launches/{}'.format(id)
+def get_urls_from_spacex(launch_id: str) -> list:
+    url = 'https://api.spacexdata.com/v5/launches/{}'.format(launch_id)
 
     response = requests.get(url)
     response.raise_for_status()
 
-    if id:
+    if launch_id:
         return list(response.json()['links']['flickr']['original'])
 
     for launch in response.json():
@@ -32,9 +32,9 @@ def main():
 existing photos of the last launch are downloaded"
     )
     args = parser.parse_args()
-    id = args.id
+    launch_id = args.id
 
-    espacex_urls = get_urls_from_spacex(id)
+    espacex_urls = get_urls_from_spacex(launch_id)
     for url in espacex_urls:
         download_image(url, os.getenv('CATALOG'))
 
