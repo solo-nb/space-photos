@@ -4,6 +4,9 @@ from service_func import download_images
 from dotenv import load_dotenv
 
 
+NUMBER_OF_IMG_TO_DOWNLOAD = 10
+
+
 def get_urls_from_apod(count: int, api_key: str) -> list:
     url = 'https://api.nasa.gov/planetary/apod'
     params = {
@@ -22,7 +25,7 @@ def get_urls_from_apod(count: int, api_key: str) -> list:
 def main():
     load_dotenv()
     urls_images = get_urls_from_apod(
-        10,
+        NUMBER_OF_IMG_TO_DOWNLOAD,
         os.getenv('NASA_API_KEY')
     )
     download_images(urls_images, os.getenv('CATALOG'))

@@ -5,6 +5,9 @@ from time import sleep
 from dotenv import load_dotenv
 
 
+MAX_ALLOWED_IMG_SIZE = 15000000
+
+
 def auto_publish_photos_to_telegram(token: str,
                                     group_id: str,
                                     catalog: str,
@@ -13,7 +16,7 @@ def auto_publish_photos_to_telegram(token: str,
 
     while True:
         for img in images:
-            if path.getsize(img) > 15000000:
+            if path.getsize(img) > MAX_ALLOWED_IMG_SIZE:
                 continue
 
             extension = get_extension(img)
