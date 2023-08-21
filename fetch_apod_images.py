@@ -1,6 +1,6 @@
 import requests
 import os
-from service_func import download_images
+from service_func import download_image
 from dotenv import load_dotenv
 
 
@@ -28,7 +28,8 @@ def main():
         NUMBER_OF_IMG_TO_DOWNLOAD,
         os.getenv('NASA_API_KEY')
     )
-    download_images(urls_images, os.getenv('CATALOG'))
+    for url in urls_images:
+        download_image(url, os.getenv('CATALOG'))
 
 
 if __name__ == '__main__':

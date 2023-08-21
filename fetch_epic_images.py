@@ -1,7 +1,7 @@
 import requests
 import os
 from datetime import datetime
-from service_func import download_images
+from service_func import download_image
 from dotenv import load_dotenv
 
 
@@ -35,7 +35,8 @@ def main():
     epic_urls = get_urls_from_epic(
         api_key=api_key
     )
-    download_images(epic_urls, os.getenv('CATALOG'), api_key)
+    for url in epic_urls:
+        download_image(url, os.getenv('CATALOG'), api_key)
 
 
 if __name__ == '__main__':

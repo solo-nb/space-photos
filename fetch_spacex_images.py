@@ -1,5 +1,5 @@
 import requests
-from service_func import download_images
+from service_func import download_image
 import os
 import argparse
 from dotenv import load_dotenv
@@ -32,7 +32,8 @@ def main():
     id = args.id
 
     espacex_urls = get_urls_from_spacex(id)
-    download_images(espacex_urls, os.getenv('CATALOG'))
+    for url in espacex_urls:
+        download_image(url, os.getenv('CATALOG'))
 
 
 if __name__ == '__main__':

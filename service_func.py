@@ -32,18 +32,17 @@ def publish_photo_to_telegram(token: str, group_id: str, file: str):
         )
 
 
-def download_images(urls: list, path: str, api_key=None) -> None:
+def download_image(url: list, path: str, api_key=None) -> None:
     params = {}
     if api_key:
         params['api_key'] = api_key
 
-    for url in urls:
-        pic = requests.get(url, params=params)
-        pic.raise_for_status()
+    pic = requests.get(url, params=params)
+    pic.raise_for_status()
 
-        os.makedirs(path, exist_ok=True)
+    os.makedirs(path, exist_ok=True)
 
-        file_name = get_file_name(url)
+    file_name = get_file_name(url)
 
-        with open(f'{path}/{file_name}', 'wb') as file:
-            file.write(pic.content)
+    with open(f'{path}/{file_name}', 'wb') as file:
+        file.write(pic.content)
