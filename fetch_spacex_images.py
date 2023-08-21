@@ -21,12 +21,15 @@ def get_urls_from_spacex(id: str) -> list:
 
 def main():
     load_dotenv()
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='This script downloads photos from spacex launches'
+    )
     parser.add_argument(
         "id",
         nargs='?',
         default='',
-        help="download specific launch id"
+        help="Download specific launch id. If not specified, \
+existing photos of the last launch are downloaded"
     )
     args = parser.parse_args()
     id = args.id

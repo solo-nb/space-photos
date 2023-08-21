@@ -11,12 +11,15 @@ def main():
     group_id = os.getenv('TELEGRAM_GROUP_ID')
     catalog = os.getenv('CATALOG')
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Script for posting photos to a telegram group'
+    )
     parser.add_argument(
         "file_name",
         nargs='?',
         default='',
-        help="publish specific file to telegram"
+        help="Publish specific file to telegram. If not specified, \
+a random photo from the catalog will be published"
     )
     args = parser.parse_args()
 
