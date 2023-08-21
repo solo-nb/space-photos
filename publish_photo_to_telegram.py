@@ -11,24 +11,25 @@ def main():
     group_id = os.getenv('TELEGRAM_GROUP_ID')
     catalog = os.getenv('CATALOG')
 
+    images = get_images(catalog)
+    default_file_name = None
+    if images:
+        shuffle(images)
+        default_file_name = images[0]
+
     parser = argparse.ArgumentParser(
         description='Script for posting photos to a telegram group'
     )
     parser.add_argument(
         "file_name",
         nargs='?',
-        default='',
+        default=default_file_name,
         help="Publish specific file to telegram. If not specified, \
 a random photo from the catalog will be published"
     )
     args = parser.parse_args()
 
-    if args.file_name:
-        file_name = args.file_name
-    else:
-        images = get_images(catalog)
-        shuffle(images)
-        file_name = images[0]
+    file_name = args.file_name
 
     publish_photo_to_telegram(token, group_id, file_name)
 
