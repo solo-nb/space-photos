@@ -28,6 +28,7 @@ def auto_publish_photos_to_telegram(token: str,
 
 
 def main():
+    load_dotenv()
     token = getenv('TELEGRAM_TOKEN')
     group_id = getenv('TELEGRAM_GROUP_ID')
     catalog = getenv('CATALOG')
@@ -37,5 +38,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()

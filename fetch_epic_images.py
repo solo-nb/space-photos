@@ -30,6 +30,7 @@ def get_urls_from_epic(api_key: str) -> list:
 
 
 def main():
+    load_dotenv()
     api_key = os.getenv('NASA_API_KEY')
     epic_urls = get_urls_from_epic(
         api_key=api_key
@@ -38,5 +39,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()

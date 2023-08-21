@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 
 def main():
+    load_dotenv()
     token = os.getenv('TELEGRAM_TOKEN')
     group_id = os.getenv('TELEGRAM_GROUP_ID')
     catalog = os.getenv('CATALOG')
@@ -30,5 +31,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()

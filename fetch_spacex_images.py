@@ -20,6 +20,7 @@ def get_urls_from_spacex(id: str) -> list:
 
 
 def main():
+    load_dotenv()
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "id",
@@ -35,5 +36,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()

@@ -20,6 +20,7 @@ def get_urls_from_apod(count: int, api_key: str) -> list:
 
 
 def main():
+    load_dotenv()
     urls_images = get_urls_from_apod(
         10,
         os.getenv('NASA_API_KEY')
@@ -28,5 +29,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()
